@@ -5,6 +5,9 @@ import Navbar from './Components/Navbar';
 import { useState,useLayoutEffect } from 'react';
 import { Logo, Whatsapp } from './assets/index';
 import Footbar from './Components/Footbar';
+import TawkTo from './Components/TawkTo';
+
+const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
 
 function App() {
   const [ loading, setLoading ] = useState(false);
@@ -44,7 +47,12 @@ function App() {
                 <Route path="/terms-and-conditions" element={<TermsConditions/>}/>
               </Routes>
               <Footbar/>
-              <a href="#" onClick={(e) => e.preventDefault()} target='_blank'><img src={Whatsapp} alt="Whatsapp" width={60} className="hover:scale-110 duration-500 cursor-pointer bg-[#25D366] rounded-full fixed bottom-5 z-50 left-6 p-2" /></a>
+              <TawkTo/>
+              {whatsappNumber && (
+                <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer">
+                  <img src={Whatsapp} alt="Whatsapp" width={60} className="hover:scale-110 duration-500 cursor-pointer bg-[#25D366] rounded-full fixed bottom-5 z-50 left-6 p-2" />
+                </a>
+              )}
             </div>
         }
     </div>

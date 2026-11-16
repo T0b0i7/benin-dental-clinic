@@ -22,6 +22,7 @@ A modern, responsive and bilingual (English / French) website for a dental clini
 - Responsive layout for desktop, tablet and mobile
 - Google Maps embed centered on Cotonou, Benin
 - Contact / appointment form
+- Optional Tawk.to live-chat widget and WhatsApp button (configured through environment variables)
 - SPA routing with proper fallback on GitHub Pages and Vercel
 - Optimized static build with Vite
 
@@ -66,6 +67,18 @@ npm run deploy
 ```
 
 This builds with the `/benin-dental-clinic/` base path, creates the SPA fallback and publishes the `gh-pages` branch.
+
+## Environment variables
+
+Copy `.env.example` to `.env.local` and fill in the values:
+
+```bash
+VITE_TAWK_PROPERTY_ID=your_property_id
+VITE_TAWK_WIDGET_ID=your_widget_id
+VITE_WHATSAPP_NUMBER=229XXXXXXXX
+```
+
+For Vercel, add the same variables under **Project → Settings → Environment Variables**, then redeploy. The Tawk.to widget only loads when both Tawk IDs are present.
 
 ## Project structure
 
