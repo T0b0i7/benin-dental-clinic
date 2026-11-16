@@ -8,6 +8,12 @@ import Footbar from './Components/Footbar';
 import TawkTo from './Components/TawkTo';
 
 const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
+const whatsappMessage = encodeURIComponent(
+  "Bonjour, je souhaite prendre rendez-vous au cabinet dentaire."
+);
+const whatsappUrl = whatsappNumber
+  ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+  : `https://wa.me/?text=${whatsappMessage}`;
 
 function App() {
   const [ loading, setLoading ] = useState(false);
@@ -24,6 +30,11 @@ function App() {
 
   return (
     <div  className="font-roboto">
+      {/* Loaded immediately so the widgets do not wait for the splash screen */}
+      <TawkTo/>
+      <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp" title="WhatsApp">
+        <img src={Whatsapp} alt="Whatsapp" width={60} className="hover:scale-110 duration-500 cursor-pointer bg-[#25D366] rounded-full fixed bottom-5 z-50 left-6 p-2" />
+      </a>
       {
         loading 
           ? 
@@ -47,12 +58,6 @@ function App() {
                 <Route path="/terms-and-conditions" element={<TermsConditions/>}/>
               </Routes>
               <Footbar/>
-              <TawkTo/>
-              {whatsappNumber && (
-                <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer">
-                  <img src={Whatsapp} alt="Whatsapp" width={60} className="hover:scale-110 duration-500 cursor-pointer bg-[#25D366] rounded-full fixed bottom-5 z-50 left-6 p-2" />
-                </a>
-              )}
             </div>
         }
     </div>
