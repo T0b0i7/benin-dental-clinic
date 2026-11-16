@@ -19,3 +19,5 @@ secrets.json
 
 # Production build
 dist/
+.vercel
+.env*
