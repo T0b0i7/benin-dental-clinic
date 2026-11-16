@@ -23,9 +23,9 @@ const Navbar = (props) => {
             {/* First Navbar */}
             <div className="flex sm:flex-col lg:flex-row lg:justify-around sm:py-3 md:py-5 sm:justify-center md:justify-around  items-center lg:h-[3.5rem] bg-[#002856] w-full text-neutral-300 text-xs">
                 <div className="lg:flex lg:flex-row md:grid md:grid-cols-2 child:items-center  lg:divide-x lg:divide-slate-400 child:tracking-widest">
-                    <a href="#" onClick={(e) => e.preventDefault()} target='_blank'><p className="flex flex-row justify-center gap-2 md:pr-3 lg:pr-7 md:border-r ">
+                    <a href="tel:+2290157002427"><p className="flex flex-row justify-center gap-2 md:pr-3 lg:pr-7 md:border-r ">
                         <img src={PhoneCallIcon} alt="Phone Icon" />
-                        +###########
+                        +229 01 57 00 24 27
                     </p></a>
                     <a href="#" onClick={(e) => {window.location.href, e.preventDefault()}}><p className="flex flex-row justify-center gap-2 sm:py-1 md:pl-3 lg:px-7">
                         <img src={EmailIcon} alt="Email Icon" />

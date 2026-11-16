@@ -20,9 +20,9 @@ const Footbar = () => {
                     <img src={Location} alt="Location Icon"/>
                     Cotonou, Bénin
                 </p>
-                <a href="#" onClick={(e) => e.preventDefault()}><p className='flex flex-row gap-2 my-4'>
+                <a href="tel:+2290157002427"><p className='flex flex-row gap-2 my-4'>
                     <img src={Contact} alt='Contact Support'/>
-                    +##########
+                    +229 01 57 00 24 27
                 </p></a>
                 <a href="#" onClick={(e) => {window.location.href, e.preventDefault()}}><p className='flex flex-row gap-2'>
                     <img src={EmailIcon} alt='Email Icon'/>
