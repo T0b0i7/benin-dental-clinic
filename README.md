@@ -1,54 +1,84 @@
-# Dental Clinic Website |  [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![version](https://img.shields.io/badge/React.Js-v16.14.0-red) [![Netlify Status](https://api.netlify.com/api/v1/badges/c0321660-0b1e-40ea-82db-10370779f201/deploy-status)](https://app.netlify.com/sites/dental-clinic-project/deploys)
+# Benin Dental Clinic — Bilingual Website
 
-![image](https://github.com/KristianPepa/Dental-Clinic-Website/assets/80427725/a6d6d78d-45bb-4a5a-a22d-6bffa7efdabe)
+![React](https://img.shields.io/badge/React-16.14-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-4.3-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-06B6D4?logo=tailwindcss&logoColor=white)
+![License](https://img.shields.io/badge/License-GPL_v3-blue)
 
+A modern, responsive and bilingual (English / French) website for a dental clinic based in **Cotonou, Benin**. It includes service and blog sections, an online appointment form and an embedded Google Map centered on Benin.
 
-A user-friendly, modern, and fully responsive online platform for a dental clinic. The website will serve as an all-in-one solution, providing patients with the ability to schedule appointments, and easily contact clinic staff.
+## Live websites
 
-Key Features:
-## 1. Appointment Booking System
-The website will offer an intuitive and efficient appointment booking system. Patients can contact the clinic staff and book appointments.
-## 2. Contact and Support
-The website will include a dedicated contact page to allow patients to get in touch with the clinic easily. Patients can use a contact form to send messages, inquire about services, or ask general questions. Additionally, relevant contact details, such as phone numbers and email addresses, will be provided for quick communication.
-## 3. Responsive Design
-The website will be built with a responsive design to ensure seamless user experiences across various devices, including desktops, tablets, and smartphones. This will enhance accessibility and user engagement, regardless of the platform.
-## 4. Comprehensive Analytics
-The website will integrate powerful analytics tools to provide the clinic with valuable insights about its online presence. Clinic administrators will have access to statistics, such as the number of website visitors, popular pages, appointment requests, and other relevant data. These analytics will help optimize the website's performance and improve user experience.
-## 5. Patient Education and Resources
-The website will feature informative content related to oral health, dental procedures, and general dental care.
-## 6. Social Media Integration
-Social media integration will be implemented to enhance the clinic's online presence and increase engagement with patients. Links to the clinic's official social media profiles will be provided to encourage patients to follow and share valuable content.
-Technologies
-The website will be built using modern web development technologies, including HTML5, CSS3, JavaScript, Tailwind Css and React.
+| Host | URL |
+| --- | --- |
+| Vercel (production) | https://benin-dental-clinic.vercel.app |
+| GitHub Pages | https://t0b0i7.github.io/benin-dental-clinic/ |
 
-## Installation
+## Features
 
-- need npm node
-- Download source code
-- npm install
-- npm start
-- open localhost:5173
+- English / French language switcher (French by default)
+- Home, About, Services, Blog, Dental Tourism, Contact and Online Reservation pages
+- Translated service, blog and booking-form content for both languages
+- Responsive layout for desktop, tablet and mobile
+- Google Maps embed centered on Cotonou, Benin
+- Contact / appointment form
+- SPA routing with proper fallback on GitHub Pages and Vercel
+- Optimized static build with Vite
 
+## Tech stack
 
-## License & Copyright
+- React 16 + React Router
+- Vite 4
+- Tailwind CSS
+- i18next / react-i18next
+- Swiper, Alice Carousel and Animate.css
 
-**Copyright © 2024 Kristian Pepa**
+## Local development
 
-This project, **Dental Clinic Website**, was originally developed by **Kristian Pepa** and is licensed under the **GNU General Public License v3.0 (GPLv3)**.
+```bash
+npm install
+npm run dev
+```
 
-You are permitted to use, copy, modify, and redistribute this software, including for commercial purposes, provided that you comply with the GPLv3 license terms.
+Then open http://localhost:5173/
 
-### License Requirements
+## Production build
 
-When redistributing this project or modified versions of it, you must:
+```bash
+npm run build
+npm run preview
+```
 
-- **Preserve** applicable copyright and license notices.
-- **License** the GPLv3-covered derivative work under GPLv3.
-- **Clearly indicate** modifications and their relevant dates.
-- **Provide** the corresponding source code as required by GPLv3.
+## Deployment
 
-The GPLv3-covered code may not be relicensed under an incompatible license, such as MIT, without separate authorization from the relevant copyright holders.
+### Vercel
 
-For the complete licensing terms, see the [LICENSE](LICENSE) file.
+The project is linked to Vercel and deploys automatically on every push to `main`.
 
-**Original project:** [KristianPepa/Dental-Clinic-Website](https://github.com/KristianPepa/Dental-Clinic-Website)
+```bash
+vercel deploy --prod
+```
+
+### GitHub Pages
+
+```bash
+npm run deploy
+```
+
+This builds with the `/benin-dental-clinic/` base path, creates the SPA fallback and publishes the `gh-pages` branch.
+
+## Project structure
+
+```
+src/
+  Components/     UI components, language files and i18n setup
+  Pages/          Route pages (Home, Services, Blog, Contact, ...)
+  data/           English, French, Italian and Albanian content
+  assets/         Images and icons
+  utils/          Asset URL helper for sub-path deployments
+public/           Public images served as-is
+```
+
+## License
+
+This project is based on the open-source [Dental Clinic Website](https://github.com/KristianPepa/Dental-Clinic-Website) template and is distributed under the GPL v3 license.
