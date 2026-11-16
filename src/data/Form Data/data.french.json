@@ -1,0 +1,20 @@
+{
+    "SubCategorysFrench": [
+        {
+            "category": "Médecine esthétique",
+            "subCategorys": ["Fillers dermiques","Botox","Microneedling (Dermapen)","Mésothérapie","PRP et PRF","Fils de traction PDO","Peeling chimique","Plasmapen","Sclérothérapie","Botox facial"]
+        },
+        {
+            "category": "Dentisterie esthétique",
+            "subCategorys": ["Dentisterie esthétique","Hollywood Smile","Prothèses dentaires","Orthodontie"]
+        },
+        {
+            "category": "Dentisterie générale",
+            "subCategorys": ["Dentisterie conservatrice","Sédation","Endodontie","Parodontologie","Pédodontie","Radiologie"]
+        },
+        {
+            "category": "Chirurgie",
+            "subCategorys": ["Implantologie","Chirurgie orale et maxillo-faciale","Bichetomie","Lifting de la lèvre supérieure"]
+        }
+    ]
+}

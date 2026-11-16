@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "vite ",
     "build": "vite build",
+    "build:pages": "GITHUB_PAGES=true vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build:pages && cp dist/index.html dist/404.html",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@formspree/react": "^2.4.2",
@@ -41,6 +44,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.23",
     "react-error-overlay": "^6.0.9",
     "tailwindcss": "^3.3.2",

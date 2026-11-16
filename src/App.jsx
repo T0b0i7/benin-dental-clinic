@@ -13,7 +13,7 @@ function App() {
   const [ loading, setLoading ] = useState(false);
   const [ typeOfService, setTypeOfService ] = useState("");
   const [ blogType, setBlogType ] = useState("");
-  const [ language,setLanguage] = useState("it");
+  const [ language,setLanguage] = useState("fr");
 
   useLayoutEffect(() => {
     setLoading(true)
@@ -42,7 +42,7 @@ function App() {
                 <Route path="/blogs/:blogType" element={<BlogsTypes blogType={blogType}/>}/>
                 <Route path="/services" element={<Services  setTypeOfService={setTypeOfService} language={language}/>}/>
                 <Route path="/services/:serviceType" element={<ServiceTypes typeOfService={typeOfService}/>}/>
-                <Route path="/free-quote" element={<ContactPage/>}/>
+                <Route path="/free-quote" element={<ContactPage language={language}/>}/>
                 <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
                 <Route path="/terms-and-conditions" element={<TermsConditions/>}/>
               </Routes>

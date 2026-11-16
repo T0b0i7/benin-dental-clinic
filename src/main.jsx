@@ -9,7 +9,7 @@ import './Components/i18n.js';
 
 ReactDOM.render(
   <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
         <ScrollToTop/>
         <App />
       </BrowserRouter>

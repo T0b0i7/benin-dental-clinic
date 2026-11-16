@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Maps from '../Components/Maps';
 import { SubCategorys } from '../data/Form Data/data.json';
+import { SubCategorysFrench } from '../data/Form Data/data.french.json';
 import { SubCategorysItalian } from '../data/Form Data/data.italian.json';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { useTranslation } from 'react-i18next';
@@ -12,19 +13,16 @@ const Contact = (props) => {
   const [category, setCategory] = useState(false)
 
 
-  const categoryFilter = (e) => { 
-    console.log(language)
-    if(language !== "it"){
-      for(var i = 0;i < SubCategorys.length;i++){
-        if(SubCategorys[i].category == e.target.value){
-          setCategoryData(SubCategorys[i].subCategorys)
-        }
-      }
-    }else{
-      for(var i = 0;i < SubCategorysItalian.length;i++){
-        if(SubCategorysItalian[i].category == e.target.value){
-          setCategoryData(SubCategorysItalian[i].subCategorys)
-        }
+  const categories = (language === "fr")
+    ? SubCategorysFrench
+    : (language === "it")
+      ? SubCategorysItalian
+      : SubCategorys
+
+  const categoryFilter = (e) => {
+    for(var i = 0;i < categories.length;i++){
+      if(categories[i].category == e.target.value){
+        setCategoryData(categories[i].subCategorys)
       }
     }
   }
@@ -40,7 +38,7 @@ const Contact = (props) => {
             {/* Email Field */}
             <input type='email' placeholder={t("formEmail")} name="Adresa Emailit" onChange={(e) => emailValidation(e)} className='bg-transparent border-slate-500 border rounded-md pl-3 py-3' required/>
             {/* Date Field */}
-            <input type='text' placeholder="Date" name="Data e Takimit" onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} className='bg-transparent border-slate-500 border rounded-md pl-3 py-3' required/>
+            <input type='text' placeholder={t("formDate")} name="Data e Takimit" onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} className='bg-transparent border-slate-500 border rounded-md pl-3 py-3' required/>
             {/* Time Field */}
             <input type='text' placeholder={t("formTime")} name="Orari Takimit" onFocus={(e) => (e.target.type = 'time')} onBlur={(e) => (e.target.type = 'text')} className='bg-transparent border-slate-500 border rounded-md pl-3 py-3' required/>
             {/* Category Field */}
@@ -49,13 +47,9 @@ const Contact = (props) => {
               setCategory(e)
               }} name="Kategoria" className='bg-transparent border-slate-500 border rounded-md pl-3 py-3'required>
             {
-              (language == "it")
-              ? Array.from(SubCategorysItalian).map(data => (
-                  <option className="text-neutral-500" key={data.category} value={data.category}>{data.category}</option>
-                ))
-              : Array.from(SubCategorys).map(data => (
-                  <option className="text-neutral-500" key={data.category} value={data.category}>{data.category}</option>
-                ))
+              Array.from(categories).map(data => (
+                <option className="text-neutral-500" key={data.category} value={data.category}>{data.category}</option>
+              ))
             }
             </select>
             {/* Service Field */}
@@ -70,7 +64,7 @@ const Contact = (props) => {
           <div className='flex flex-col child:mb-5'>
             <input type='Numri Telefonit' name="Phone Number" placeholder={t("formNumber")} onChange={(e) => numberValidation(e)} className='py-3 pl-3 bg-transparent rounded-md border' width={'20px'} required/>
             <textarea placeholder={t("formMessage")} name="Mesazhi " rows={4} className='pl-3 py-3 bg-transparent border mb-5 rounded-md border-slate-500'/>
-          <button type='submit' className='h-16 bg-[#00ACB1] border-none hover:bg-white hover:text-black duration-300'>Book Appointment</button>
+          <button type='submit' className='h-16 bg-[#00ACB1] border-none hover:bg-white hover:text-black duration-300'>{t("carouselButton")}</button>
           </div>
         </div>
       </form>

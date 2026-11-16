@@ -14,7 +14,7 @@ const About = () => {
       <div className='flex flex-row justify-between sm:px-5 md:px-10 lg:px-28 py-10 items-center'>
         <div className='flex flex-col gap-3'>
           <p className='font-bold text-4xl text-[#002856]'>{t("dentalTourism")}</p>
-          <p className='font-medium text-[#002856]'><Link to="/">Home</Link> - <span className='text-[#00ACB1]'>{t("dentalTourism")}</span></p>
+          <p className='font-medium text-[#002856]'><Link to="/">{t("home")}</Link> - <span className='text-[#00ACB1]'>{t("dentalTourism")}</span></p>
         </div>
         <img src={AboutImg} alt="About Img" className='sm:w-24 md:w-36 lg:w-40'/>
       </div>

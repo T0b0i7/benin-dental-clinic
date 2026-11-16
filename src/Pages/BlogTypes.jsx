@@ -2,9 +2,11 @@ import React from "react"
 import {AboutImg} from "../assets"
 import {Link} from "react-router-dom"
 import {Swiper, SwiperSlide} from "swiper/react"
+import { useTranslation } from "react-i18next"
 
 const BlogTypes = props => {
     const {blogType} = props
+    const { t } = useTranslation()
 
     return (
         <div className="w-full flex-col">
@@ -13,7 +15,7 @@ const BlogTypes = props => {
                 <div className="flex flex-col gap-3">
                     <p className="font-bold text-4xl text-[#002856]">{blogType.title}</p>
                     <p className="font-medium text-[#002856]">
-                        <Link to="/">Home - </Link>
+                        <Link to="/">{t("home")} - </Link>
                         <span className="text-[#00ACB1]">{blogType.title}</span>
                     </p>
                 </div>

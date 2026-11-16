@@ -43,7 +43,7 @@ const DentalTourism = () => {
         <div className="flex flex-col gap-3">
           <p className="font-bold text-4xl text-[#002856]">{t("dentalTourism")}</p>
           <p className="font-medium text-[#002856]">
-            <Link to="/">Home</Link> - <span className="text-[#00ACB1]">{t("dentalTourism")}</span>
+            <Link to="/">{t("home")}</Link> - <span className="text-[#00ACB1]">{t("dentalTourism")}</span>
           </p>
         </div>
         <img

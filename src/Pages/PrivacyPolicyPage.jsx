@@ -13,7 +13,7 @@ const PrivacyPolicyPage = () => {
                 <div className="flex flex-col gap-3">
                     <p className="font-bold text-4xl text-[#002856]">{t("privacyPolicy")}</p>
                     <p className="font-medium text-[#002856]">
-                        <Link to="/">Home</Link> - <span className="text-[#00ACB1]">{t("privacyPolicy")}</span>
+                        <Link to="/">{t("home")}</Link> - <span className="text-[#00ACB1]">{t("privacyPolicy")}</span>
                     </p>
                 </div>
                 <img

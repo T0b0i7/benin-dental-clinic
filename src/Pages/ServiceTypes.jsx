@@ -16,7 +16,7 @@ const ServiceTypes = (props) => {
                 <div className="flex flex-col gap-3">
                     <p className="font-bold text-4xl text-[#002856]">{typeOfService.title}</p>
                     <p className="font-medium text-[#002856]">
-                        <Link to="/">Home</Link> - <span className="text-[#00ACB1]">{typeOfService.title}</span>
+                        <Link to="/">{t("home")}</Link> - <span className="text-[#00ACB1]">{typeOfService.title}</span>
                     </p>
                 </div>
                 <img
@@ -30,7 +30,7 @@ const ServiceTypes = (props) => {
                 {/* Filters */}
                 <div className='flex flex-col gap-5 fadeInLeft'>
                     <div className='flex flex-col child:text-[#002856] child:font-bold child:text-xl gap-5 bg-neutral-100 px-5 py-5 rounded-xl md:child:text-left md:child:pl-5'>
-                        <p>Blogs Category</p>
+                        <p>{t("blogsCategory")}</p>
                         <button type='button' className='bg-white lg:w-80 border py-2 hover:translate-x-1 duration-500 rounded-xl hover:border-l-[5px] hover:text-[#00ACB1] hover:border-l-[#00ACB1]' value="all"><Link to="/services">{t("servicesButton1")}</Link></button>
                         <button type='button' className='bg-white lg:w-80 border py-2 hover:translate-x-1 duration-500 rounded-xl hover:border-l-[5px] hover:text-[#00ACB1] hover:border-l-[#00ACB1]' value="surgery"><Link to="/services">{t("servicesButton2")}</Link></button>
                         <button type='button' className='bg-white lg:w-80 border py-2 hover:translate-x-1 duration-500 rounded-xl hover:border-l-[5px] hover:text-[#00ACB1] hover:border-l-[#00ACB1]' value="general-dentistry"><Link to="/services">{t("servicesButton3")}</Link></button>

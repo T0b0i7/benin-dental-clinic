@@ -1,6 +1,7 @@
 import React from 'react'
 import { AboutImg,BlogInfoImage, PlusIcon, MinusIcon } from '../assets';
 import { BlogData } from '../data/Blog Data/data.json';
+import { BlogDataFrench } from '../data/Blog Data/data.french.json';
 import { BlogDataAlbanian } from '../data/Blog Data/data.albanian.json';
 import { BlogDataItalian } from '../data/Blog Data/data.italian.json';
 import { useState } from 'react';
@@ -8,6 +9,7 @@ import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { Trans, useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
+import { withBaseList } from '../utils/withBase';
 
 const Blog = (props) => {
   const { language } = props;
@@ -22,24 +24,19 @@ const Blog = (props) => {
   const {setBlogType} = props;
 
   const filterFunction = (e) => {
-    if(language === "en"){
-      if(e.target.value === "all"){
-        setBlog(BlogData)
-      }else{
-        setBlog(BlogData.filter((data) => data.category == e.target.value))
-      }
+    let data = withBaseList(BlogData)
+    if(language === "fr"){
+      data = withBaseList(BlogDataFrench)
     }else if(language === "sq"){
-      if(e.target.value === "all"){
-        setBlog(BlogDataAlbanian)
-      }else{
-        setBlog(BlogDataAlbanian.filter((data) => data.category == e.target.value))
-      }
+      data = withBaseList(BlogDataAlbanian)
+    }else if(language === "it"){
+      data = withBaseList(BlogDataItalian)
+    }
+
+    if(e.target.value === "all"){
+      setBlog(data)
     }else{
-      if(e.target.value === "all"){
-        setBlog(BlogDataItalian)
-      }else{
-        setBlog(BlogDataItalian.filter((data) => data.category == e.target.value))
-      }
+      setBlog(data.filter((item) => item.category == e.target.value))
     }
   }
 
@@ -90,12 +87,14 @@ const Blog = (props) => {
   }
 
   useEffect(() => {
-    if(language == "it"){
-      setBlog(BlogDataItalian)
+    if(language == "fr"){
+      setBlog(withBaseList(BlogDataFrench))
+    }else if(language == "it"){
+      setBlog(withBaseList(BlogDataItalian))
     }else if(language == "sq"){
-      setBlog(BlogDataAlbanian)
+      setBlog(withBaseList(BlogDataAlbanian))
     }else{
-      setBlog(BlogData)
+      setBlog(withBaseList(BlogData))
     }
   },[language])
 
@@ -107,7 +106,7 @@ const Blog = (props) => {
         <div className="flex flex-col gap-3">
           <p className="font-bold text-4xl text-[#002856]">{t("blog")}</p>
           <p className="font-medium text-[#002856]">
-            <Link to="/">Home</Link> - <span className="text-[#00ACB1]">{t("blog")}</span>
+            <Link to="/">{t("home")}</Link> - <span className="text-[#00ACB1]">{t("blog")}</span>
           </p>
         </div>
         <img
@@ -121,7 +120,7 @@ const Blog = (props) => {
         {/* Filters */}
         <ScrollAnimation className='flex flex-col gap-5' animateIn='fadeInLeft'>
           <div className='flex flex-col child:text-[#002856] child:font-bold child:text-xl gap-5 bg-neutral-100 px-5 py-5 rounded-xl md:child:text-left md:child:pl-5'>
-            <p>Blogs Category</p>
+            <p>{t("blogsCategory")}</p>
             <button type='button' className='bg-white lg:w-80 border py-2 hover:translate-x-1 duration-500 rounded-xl hover:border-l-[5px] hover:text-[#00ACB1] hover:border-l-[#00ACB1]' value="all" onClick={(e) => filterFunction(e)}>{t("servicesButton1")}</button>
             <button type='button' className='bg-white lg:w-80 border py-2 hover:translate-x-1 duration-500 rounded-xl hover:border-l-[5px] hover:text-[#00ACB1] hover:border-l-[#00ACB1]' value="surgery" onClick={(e) => filterFunction(e)}>{t("servicesButton2")}</button>
             <button type='button' className='bg-white lg:w-80 border py-2 hover:translate-x-1 duration-500 rounded-xl hover:border-l-[5px] hover:text-[#00ACB1] hover:border-l-[#00ACB1]' value="general-dentistry" onClick={(e) => filterFunction(e)}>{t("servicesButton3")}</button>

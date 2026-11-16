@@ -33,16 +33,15 @@ const Navbar = (props) => {
                     </p></a>
                     <p className="flex flex-row justify-center md:justify-start gap-2 lg:pl-7 md:pt-2 md:col-span-2 ">
                         <img src={Clock} alt="Clock Icon" />
-                        {t("week")}: 8:00 am - 8:00 pm
+                        {t("week")}: {t("weekHours")}
                     </p>
                 </div>
                 <div className="flex flex-row divide-x sm:justify-center sm:pt-3">
                     <p className="flex flex-row items-center gap-2 lg:pl-10 lg:pr-8 sm:pr-2 md:pr-3">
                         <img src={Language} alt="Language Icon" style={{ height: "20px"}}/>
                         <select id="language" className="text-neutral-300 border-none bg-transparent child:text-black" onChange={(e) => languageChange(e)}>
-                            <option value="it">{t("italian")}</option>
+                            <option value="fr">{t("french")}</option>
                             <option value="en">{t("english")}</option>
-                            <option value="sq">{t("albanian")}</option>
                         </select>
                     </p>
                     <div className="flex flex-row lg:pl-10 sm:pl-2 md:pl-3 lg:gap-7 sm:gap-3 md:gap-3 child-hover:bg-white child:p-2 child:rounded-full child:duration-300 child-hover:-translate-y-1">

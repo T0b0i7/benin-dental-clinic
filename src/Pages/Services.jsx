@@ -1,10 +1,12 @@
 import {useEffect, useState} from 'react'
 import { AboutImg } from '../assets';
 import { ServicesData } from '../data/Services Data/data';
+import { ServicesDataFrench } from '../data/Services Data/data.french.json';
 import { ServicesDataItalian } from '../data/Services Data/data.italian.json';
 import { ServicesDataAlbanian } from '../data/Services Data/data.albanian.json';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { withBaseList } from '../utils/withBase';
 
 const Services = (props) => {
   const [categoryData, setCategoryData] = useState({});
@@ -13,34 +15,31 @@ const Services = (props) => {
   const {language} = props;
 
   useEffect(() => {
-    if(language == "it"){
-      setCategoryData(ServicesDataItalian)
+    if(language == "fr"){
+      setCategoryData(withBaseList(ServicesDataFrench))
+    }else if(language == "it"){
+      setCategoryData(withBaseList(ServicesDataItalian))
     }else if(language == "sq"){
-      setCategoryData(ServicesDataAlbanian)
+      setCategoryData(withBaseList(ServicesDataAlbanian))
     }else{
-      setCategoryData(ServicesData)
+      setCategoryData(withBaseList(ServicesData))
     }
   },[language])
 
   const searchFunction = (e) => {
-    if(language == "en"){
-      if(e.target.value == "all"){
-        setCategoryData(ServicesData)
-      }else{
-        setCategoryData(ServicesData.filter((data) => data.category == e.target.value))
-      }
+    let data = withBaseList(ServicesData)
+    if(language == "fr"){
+      data = withBaseList(ServicesDataFrench)
+    }else if(language == "it"){
+      data = withBaseList(ServicesDataItalian)
     }else if(language == "sq"){
-      if(e.target.value == "all"){
-        setCategoryData(ServicesDataAlbanian)
-      }else{
-        setCategoryData(ServicesDataAlbanian.filter((data) => data.category == e.target.value))
-      }
+      data = withBaseList(ServicesDataAlbanian)
+    }
+
+    if(e.target.value == "all"){
+      setCategoryData(data)
     }else{
-      if(e.target.value == "all"){
-        setCategoryData(ServicesDataItalian)
-      }else{
-        setCategoryData(ServicesDataItalian.filter((data) => data.category == e.target.value))
-      }
+      setCategoryData(data.filter((item) => item.category == e.target.value))
     }
   }
 
@@ -52,7 +51,7 @@ const Services = (props) => {
         <div className="flex flex-col gap-3">
           <p className="font-bold text-4xl text-[#002856]">{t("services")}</p>
           <p className="font-medium text-[#002856]">
-            <Link to="/">Home</Link> - <span className="text-[#00ACB1]">{t("services")}</span>
+            <Link to="/">{t("home")}</Link> - <span className="text-[#00ACB1]">{t("services")}</span>
           </p>
         </div>
         <img

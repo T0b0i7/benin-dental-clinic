@@ -13,7 +13,7 @@ const TermsAndConditions = () => {
                 <div className="flex flex-col gap-3">
                     <p className="font-bold text-4xl text-[#002856]">{t("termsConditions")}</p>
                     <p className="font-medium text-[#002856]">
-                        <Link to="/">Home</Link> - <span className="text-[#00ACB1]">{t("termsConditions")}</span>
+                        <Link to="/">{t("home")}</Link> - <span className="text-[#00ACB1]">{t("termsConditions")}</span>
                     </p>
                 </div>
                 <img

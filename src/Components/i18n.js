@@ -1,6 +1,7 @@
 import i18n from "i18next"
 import { initReactI18next } from "react-i18next"
 import english from './Lang/English.json';
+import french from './Lang/french.json';
 import italian from './Lang/Italian.json';
 import albanian from './Lang/albanian.json';
 
@@ -10,11 +11,12 @@ i18n
     .init({
         resources: {
         en: {translation: english},
+        fr: {translation: french},
         it: {translation: italian},
         sq: {translation: albanian},
         },
-        lng: "it", // if you're using a language detector, do not define the lng option
-        fallbackLng: "it",
+        lng: "fr", // if you're using a language detector, do not define the lng option
+        fallbackLng: "fr",
 
         interpolation: {
         escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
