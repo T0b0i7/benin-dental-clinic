@@ -21,3 +21,4 @@ secrets.json
 dist/
 .vercel
 .env*
+!.env.example
